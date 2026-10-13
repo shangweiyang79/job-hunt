@@ -1,0 +1,92 @@
+# Weekly job radar criteria. Edit freely; the routine reads this file every run.
+
+window_days: 7
+high_match_threshold: 80      # >= this score -> tailored CV + Telegram alert
+max_tailored_per_week: 3
+
+roles:
+  # title must match at least one of these (case-insensitive substring)
+  include_title:
+    - data analyst
+    - data scientist
+    - data engineer
+    - analytics engineer
+    - bi analyst
+    - bi engineer
+    - bi developer
+    - business intelligence
+    - bi operation
+    - analytics manager
+    - product analyst
+    - marketing analyst
+    - 數據分析
+    - 資料分析
+    - 數據科學
+    - 資料科學
+    - 資料工程
+    - 數據工程
+    - 商業智慧
+    - bi 工程師
+    - 分析工程師
+    - データアナリスト
+    - データサイエンティスト
+    - データエンジニア
+    - アナリティクスエンジニア
+    - biエンジニア
+    - データ分析
+  exclude_title:
+    - intern
+    - 實習
+    - 工讀
+    - インターン
+    - principal
+    - director
+    - head of
+    - 部長
+    - 總監
+    - sales
+    - 業務
+
+# Already applied (from E:\面試準備\應徵). Matching postings are listed as "已投遞" in the
+# weekly report instead of triggering a new alert. Add new applications here.
+already_applied:
+  - {company: 台灣大哥大, title: D635 MyVideo 數據分析師}
+  - {company: 中華電信, title: 影視平台數據分析師}
+  - {company: 南山人壽, title: 資料科學家}
+  - {company: 燿華電子, title: AI工程師}
+  - {company: 英鉑科, title: 數據分析師}
+  - {company: 關貿網路, title: 資料科學家}
+
+search_keywords:
+  tw: [數據分析師, 資料分析師, 資料科學家, 資料工程師, 數據工程師, BI 工程師, 商業智慧, Data Analyst, Data Scientist, Data Engineer, Analytics Engineer, BI Analyst]
+  jp: [Data Analyst, Data Scientist, Data Engineer, Analytics Engineer, BI Engineer, データアナリスト, データサイエンティスト, データエンジニア]
+
+locations:
+  tw:
+    label: 北台灣
+    accept: [台北, 臺北, 新北, 桃園, 新竹, 基隆, Taipei, New Taipei, Taoyuan, Hsinchu, Keelung]
+    area_104: "6001001000,6001002000,6001004000,6001005000,6001006000"   # 台北 新北 基隆 桃園 新竹
+  jp:
+    label: 日本
+    accept: [Tokyo, 東京, Japan, 日本, Remote, リモート, Osaka, 大阪, Yokohama, 横浜]
+
+sources:
+  - {name: "104", method: "scripts/search_sources.py --source 104"}
+  - {name: LinkedIn, method: "scripts/search_sources.py --source linkedin (often HTTP 429; fall back to WebSearch site:linkedin.com/jobs/view)"}
+  - {name: CakeResume, method: "WebSearch site:cake.me/jobs"}
+  - {name: Yourator, method: "WebSearch site:yourator.co/companies/*/jobs"}
+  - {name: TokyoDev, method: "WebFetch https://www.tokyodev.com/jobs (data / analytics categories)"}
+  - {name: Japan Dev, method: "WebFetch https://japan-dev.com/jobs (data category)"}
+  - {name: Daijob / CareerCross, method: "WebSearch site:daijob.com OR site:careercross.com data analyst / data scientist"}
+
+scoring:   # weights sum to 100
+  role_fit: 35        # DA / DS / DE / AE / BI scope vs candidate's actual work (see profile/candidate_facts.md)
+  skills: 25          # SQL, Python, BigQuery/GCP, Power BI/Tableau/Looker, GA4, A/B testing, ML, RAG/LLM
+  seniority: 15       # candidate: ~1.5 yrs titled data roles + 6 yrs analytics-heavy gallery role; ideal 1-5 yrs asked
+  location: 10        # north Taiwan or Japan (Tokyo / remote) = full marks
+  language: 10        # bonus when English or Japanese is required (TOEIC 925, JLPT N1)
+  industry: 5         # media / content / streaming / e-commerce / consumer internet preferred
+  penalties:
+    - "requires 7+ years or people-management of a team -> -20"
+    - "hard requirement candidate clearly lacks (e.g. Scala/Spark production, PhD, Java backend) -> -15 each, max -30"
+    - "Japan role requiring business-level Japanese only (JLPT N1 is fine) -> no penalty; requires Japanese nationality/visa already held -> flag"

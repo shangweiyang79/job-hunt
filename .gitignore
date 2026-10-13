@@ -1,0 +1,6 @@
+out/
+data/raw_jobs.json
+__pycache__/
+*.pyc
+~$*
+.secrets/
