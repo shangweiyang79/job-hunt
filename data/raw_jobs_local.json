@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-13T17:00:37+00:00",
+  "fetched_at": "2026-10-13T17:03:33+00:00",
   "since": "2026-10-07",
   "jobs": [
     {
@@ -1745,6 +1745,40 @@
     },
     {
       "source": "104",
+      "job_id": "9643f",
+      "url": "https://www.104.com.tw/job/9643f",
+      "title": "Senior Data Scientist",
+      "company": "台灣美光(台灣美光晶圓科技股份有限公司/台灣美光記憶體股份有限公司/美商美光亞太科技股份有限公司台灣分公司)",
+      "location": "桃園市龜山區",
+      "posted": "2026-10-13",
+      "salary": "面議",
+      "snippet": "Apply here: https://micron.wd1.myworkdayjobs.com/External/job/Taoyuan---Fab-11-Taiwan/SR-DATA-ENGINEER_JR90336 Design, build, and maintain scalable, reliable, and high-availability data platforms and data pipelines to support analytics and data-driven applications Collaborate closely with data scien",
+      "detail": {
+        "title": "Senior Data Scientist",
+        "company": "台灣美光(台灣美光晶圓科技股份有限公司/台灣美光記憶體股份有限公司/美商美光亞太科技股份有限公司台灣分公司)",
+        "description": "Apply here:\nhttps://micron.wd1.myworkdayjobs.com/External/job/Taoyuan---Fab-11-Taiwan/SR-DATA-ENGINEER_JR90336\n\n\nDesign, build, and maintain scalable, reliable, and high-availability data platforms and data pipelines to support analytics and data-driven applications\n\nCollaborate closely with data scientists, analysts, product teams, and software engineers to translate business requirements into robust and reusable data solutions\n\nOwn data modeling and data architecture design to ensure data consistency, accuracy, and long-term maintainability\n\nDevelop and optimize both batch and real-time (streaming) data processing pipelines to improve performance and system stability\n\nEnsure data quality, data governance, and data security through monitoring, validation, and anomaly detection mechanisms\n\nContinuously improve existing data pipelines and platforms through performance tuning, cost optimization, and technical debt reduction\n\nParticipate in technology selection for data platforms and tools (e.g., databases, cloud services, data processing frameworks) and promote engineering best practices\n\nCreate and maintain technical documentation to support knowledge sharing and long-term system sustainability\n\nMentor and support junior data engineers, contributing to the overall technical growth and engineering excellence of the team\n\nStay current with emerging trends and technologies in data engineering and big data, and evaluate their potential adoption and business value\n\n\n\nResponsibilities include, but not limited to:\n\nStrong desire to grow a career as a Data Scientist in highly automated industrial manufacturing doing analysis and machine learning on terabytes and petabytes of diverse datasets.\n\nExperience in the areas: statistical modeling, feature extraction and analysis, supervised/unsupervised/semi-supervised learning. Exposure to the semiconductor industry is a plus but not a requirement.\n\nAbility to extract data from different databases via SQL and other query languages and applying data cleansing, outlier identification, and missing data techniques.\n\nStrong software development skills.\n\nStrong verbal and written communication skills.\n\nExperience with or desire to learn:\n\nMachine learning and other advanced analytical methods\n\nFluency in Python and SQL\n\nGCP and/or another SQL databases\n\nExperience with or desire to learn Google Cloud Vertex AI, AI/ML pipeline development, LLM applications, AI agents, Model Context Protocol (MCP), and skill/tool orchestration frameworks for enterprise AI solutions.\n\nExperience working with time-series data, images, semi-supervised learning, and data with frequently changing distributions is a plus\n\n\n\nAI Relevant Job Responsibilities:  \n\n- Integrates AI-assisted tools and insights into daily work to improve efficiency, quality, or effectiveness, exercising sound judgment and complying with organizational standards and legal requirements. \n\n- Contributes to a culture of continuous improvement by identifying, testing, and sharing AI-enabled enhancements within one’s scope of work.  \n\n- Ability to apply baseline digital fluency and role‑appropriate AI literacy to use AI‑enabled tools responsibly and effectively for research, analysis, content creation, problem‑solving, operational tasks, and achieving business\n\n\n\n\n\n​",
+        "work_exp": "5年以上",
+        "edu": "大學以上",
+        "skills": [],
+        "language": [
+          {
+            "code": 1,
+            "language": "英文",
+            "ability": {
+              "listening": "中等",
+              "speaking": "中等",
+              "reading": "中等",
+              "writing": "中等"
+            }
+          }
+        ],
+        "other": "Experience in the areas: statistical modeling, feature extraction and analysis, supervised/unsupervised/semi-supervised learning. Exposure to the semiconductor industry is a plus but not a requirement.\nExperience working with time-series data, images, semi-supervised learning, and data with frequently changing distributions is a plus.\nExperience with or desire to learn Google Cloud Vertex AI, AI/ML pipeline development, LLM applications, AI agents, Model Context Protocol (MCP), and skill/tool orchestration frameworks for enterprise AI solutions.\nMachine learning and other advanced analytical methods",
+        "salary": "待遇面議",
+        "address": "桃園市龜山區"
+      }
+    },
+    {
+      "source": "104",
       "job_id": "8w8s7",
       "url": "https://www.104.com.tw/job/8w8s7",
       "title": "Staff Data Scientist",
@@ -1783,40 +1817,6 @@
           }
         ],
         "other": " ",
-        "salary": "待遇面議",
-        "address": "桃園市龜山區"
-      }
-    },
-    {
-      "source": "104",
-      "job_id": "9643f",
-      "url": "https://www.104.com.tw/job/9643f",
-      "title": "Senior Data Scientist",
-      "company": "台灣美光(台灣美光晶圓科技股份有限公司/台灣美光記憶體股份有限公司/美商美光亞太科技股份有限公司台灣分公司)",
-      "location": "桃園市龜山區",
-      "posted": "2026-10-13",
-      "salary": "面議",
-      "snippet": "Apply here: https://micron.wd1.myworkdayjobs.com/External/job/Taoyuan---Fab-11-Taiwan/SR-DATA-ENGINEER_JR90336 Design, build, and maintain scalable, reliable, and high-availability data platforms and data pipelines to support analytics and data-driven applications Collaborate closely with data scien",
-      "detail": {
-        "title": "Senior Data Scientist",
-        "company": "台灣美光(台灣美光晶圓科技股份有限公司/台灣美光記憶體股份有限公司/美商美光亞太科技股份有限公司台灣分公司)",
-        "description": "Apply here:\nhttps://micron.wd1.myworkdayjobs.com/External/job/Taoyuan---Fab-11-Taiwan/SR-DATA-ENGINEER_JR90336\n\n\nDesign, build, and maintain scalable, reliable, and high-availability data platforms and data pipelines to support analytics and data-driven applications\n\nCollaborate closely with data scientists, analysts, product teams, and software engineers to translate business requirements into robust and reusable data solutions\n\nOwn data modeling and data architecture design to ensure data consistency, accuracy, and long-term maintainability\n\nDevelop and optimize both batch and real-time (streaming) data processing pipelines to improve performance and system stability\n\nEnsure data quality, data governance, and data security through monitoring, validation, and anomaly detection mechanisms\n\nContinuously improve existing data pipelines and platforms through performance tuning, cost optimization, and technical debt reduction\n\nParticipate in technology selection for data platforms and tools (e.g., databases, cloud services, data processing frameworks) and promote engineering best practices\n\nCreate and maintain technical documentation to support knowledge sharing and long-term system sustainability\n\nMentor and support junior data engineers, contributing to the overall technical growth and engineering excellence of the team\n\nStay current with emerging trends and technologies in data engineering and big data, and evaluate their potential adoption and business value\n\n\n\nResponsibilities include, but not limited to:\n\nStrong desire to grow a career as a Data Scientist in highly automated industrial manufacturing doing analysis and machine learning on terabytes and petabytes of diverse datasets.\n\nExperience in the areas: statistical modeling, feature extraction and analysis, supervised/unsupervised/semi-supervised learning. Exposure to the semiconductor industry is a plus but not a requirement.\n\nAbility to extract data from different databases via SQL and other query languages and applying data cleansing, outlier identification, and missing data techniques.\n\nStrong software development skills.\n\nStrong verbal and written communication skills.\n\nExperience with or desire to learn:\n\nMachine learning and other advanced analytical methods\n\nFluency in Python and SQL\n\nGCP and/or another SQL databases\n\nExperience with or desire to learn Google Cloud Vertex AI, AI/ML pipeline development, LLM applications, AI agents, Model Context Protocol (MCP), and skill/tool orchestration frameworks for enterprise AI solutions.\n\nExperience working with time-series data, images, semi-supervised learning, and data with frequently changing distributions is a plus\n\n\n\nAI Relevant Job Responsibilities:  \n\n- Integrates AI-assisted tools and insights into daily work to improve efficiency, quality, or effectiveness, exercising sound judgment and complying with organizational standards and legal requirements. \n\n- Contributes to a culture of continuous improvement by identifying, testing, and sharing AI-enabled enhancements within one’s scope of work.  \n\n- Ability to apply baseline digital fluency and role‑appropriate AI literacy to use AI‑enabled tools responsibly and effectively for research, analysis, content creation, problem‑solving, operational tasks, and achieving business\n\n\n\n\n\n​",
-        "work_exp": "5年以上",
-        "edu": "大學以上",
-        "skills": [],
-        "language": [
-          {
-            "code": 1,
-            "language": "英文",
-            "ability": {
-              "listening": "中等",
-              "speaking": "中等",
-              "reading": "中等",
-              "writing": "中等"
-            }
-          }
-        ],
-        "other": "Experience in the areas: statistical modeling, feature extraction and analysis, supervised/unsupervised/semi-supervised learning. Exposure to the semiconductor industry is a plus but not a requirement.\nExperience working with time-series data, images, semi-supervised learning, and data with frequently changing distributions is a plus.\nExperience with or desire to learn Google Cloud Vertex AI, AI/ML pipeline development, LLM applications, AI agents, Model Context Protocol (MCP), and skill/tool orchestration frameworks for enterprise AI solutions.\nMachine learning and other advanced analytical methods",
         "salary": "待遇面議",
         "address": "桃園市龜山區"
       }
