@@ -35,6 +35,7 @@
 2. 敘事：DA/BI 職缺用「洞察 → 建議 → 成效」，以競品分析與留存分析帶頭，工具放次要。DS/DE/AE 職缺強調管線、RAG＋evals、分類模型與方法嚴謹度。
 3. 寫 `applications/<YYYY-MM-DD>_<公司>_<職稱>/spec.json`（格式見 `scripts/tailor.py` docstring），`output` 也放同一個資料夾。只改個人簡介、職稱、bullet 的排序與措辭、技能排序。中文 pptx 的職稱框可改成對應職稱。
 4. `python scripts/tailor.py applications/.../spec.json`。若 REJECTED，依訊息修正後重試（最多 3 次）；**不可為了通過檢查而加入新數字**。
+   - **經歷不可張冠李戴**：每個 bullet 只能寫該公司實際做過的事（見 `profile/attribution.yaml`）。例如新聞分類、RAG 都是 TaiwanPlus 的專案，不可放到聯合報系底下。要強調某個專案時，替換**同一家公司**裡相關性較低的 bullet。
 5. `bash scripts/render_pdf.sh applications/<dir>/*.docx applications/<dir>/*.pptx`。中文履歷必須 1 頁、英文 ≤ 2 頁、自傳 1 頁；超過就刪短句子後重來。exit 2（無 LibreOffice）就只交付原檔。
 6. 在同一資料夾寫 `match.md`：職缺連結、分數、匹配理由、缺口、使用的範本。這個資料夾會 commit 到 repo；本機下次執行 drive_sync 時會自動上傳到 Drive `應徵最新/自動客製/`。
 

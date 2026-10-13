@@ -95,6 +95,36 @@ def paragraphs_pptx(prs):
         yield from walk(slide.shapes)
 
 
+def employer_sections(paras, is_pptx):
+    """Map each paragraph (by XML element id) to the employer whose bullets it belongs to."""
+    import yaml
+    cfg = yaml.safe_load((ROOT / "profile" / "attribution.yaml").read_text(encoding="utf-8"))
+    emps = cfg["employers"]
+    section = {}
+    if is_pptx:
+        box_owner = {b: name for name, e in emps.items() for b in e["pptx_boxes"]}
+        for sh, p in paras:
+            if sh.shape_id in box_owner:
+                section[id(p._p)] = box_owner[sh.shape_id]
+    else:
+        current = None
+        for _, p in paras:
+            text = p.text.strip()
+            if any(text.upper().startswith(h) for h in cfg["docx_section_end"]):
+                current = None
+            for name, e in emps.items():
+                if any(text.startswith(h) for h in e["docx_header"]):
+                    current = name
+            if current:
+                section[id(p._p)] = current
+    return section, emps
+
+
+def misattributed(new, owner, emps):
+    """Signature terms of other employers that appear in a bullet under `owner`."""
+    return [(t, name) for name, e in emps.items() if name != owner for t in map(str, e["terms"]) if t in new]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("spec")
@@ -120,6 +150,7 @@ def main():
     template_text = "\n".join(p.text for _, p in paras)
     facts = (ROOT / "profile" / "candidate_facts.md").read_text(encoding="utf-8")
     allowed = numbers(template_text, with_bare=True) | numbers(facts, with_bare=True)
+    section, emps = employer_sections(paras, is_pptx)
     original_box_len = {}
     if is_pptx:
         for sh, p in paras:
@@ -139,6 +170,10 @@ def main():
         invented = numbers(new) - allowed
         if invented:
             problems.append(f"match {e['match']!r}: numbers not in facts/template: {sorted(invented)}")
+        owner = section.get(id(p._p))
+        if owner:
+            for term, other in misattributed(new, owner, emps):
+                problems.append(f"match {e['match']!r}: '{term}' is {other} work but this bullet is under {owner}")
         if not is_pptx and len(new) > len(p.text) * a.max_growth + 20:
             problems.append(f"match {e['match']!r}: {len(new)} chars > {a.max_growth}x original {len(p.text)}")
         set_paragraph_text(p.runs, new)

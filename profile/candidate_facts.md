@@ -44,6 +44,7 @@ Government-funded international English media platform (政府支持之國際媒
 - ML / AI: classification, regression, clustering, feature engineering; RAG, vector DB, semantic search, LLM evals, AI agents (Agentic AI)
 
 ## Narrative rules (from CLAUDE.md)
+- **Never move a project to another employer.** Bullets under an employer describe only that employer's work (`profile/attribution.yaml`; tailor.py enforces it).
 - **Analyst / BI roles**: Insight → Recommendation → Impact. Lead with the competitive-analysis and retention stories; keep tools secondary.
 - **Scientist / engineer roles**: lead with the pipeline, RAG + evals, classification, methodology rigor.
 - The Chinese CV is **one A4 page with photo** (`templates/中文履歷_楊上瑋_數據分析師.pptx`); every text box must stay ≤ its original character count.

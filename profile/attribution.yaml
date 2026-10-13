@@ -1,0 +1,24 @@
+# Which work belongs to which employer. tailor.py rejects an edit when a bullet under one
+# employer mentions another employer's signature terms (e.g. the TaiwanPlus classification
+# project written under 聯合報系). Terms match case-sensitively as substrings.
+#   pptx_boxes:  text-box shape ids holding that employer's bullets in the Chinese pptx template
+#   docx_header: how that employer's header line starts in the English docx templates
+employers:
+  TaiwanPlus:
+    pptx_boxes: [170]
+    docx_header: ["TaiwanPlus"]
+    terms: [RAG, DistilBERT, BigQuery, Vertex, Gemini, NHK, CNA, Arirang, Computex, YouTube, 推薦, recommender, "17.6", "176K", 分類, classification, F1]
+  聯合報系:
+    pptx_boxes: [171]
+    docx_header: ["United Daily News"]
+    terms: [訂閱, subscription, Google Trends, 選題, topic-selection]
+  紅野畫廊:
+    pptx_boxes: [172]
+    docx_header: ["Powen"]
+    terms: [IG, Instagram, 預算, budget, 畫廊, Gallery, A/B, 廣告, advertising]
+  中央研究院:
+    pptx_boxes: [19]
+    docx_header: ["Academia Sinica"]
+    terms: [學術, academic]
+# docx lines that end the work-experience part (no attribution check after these)
+docx_section_end: ["EDUCATION", "SKILLS"]

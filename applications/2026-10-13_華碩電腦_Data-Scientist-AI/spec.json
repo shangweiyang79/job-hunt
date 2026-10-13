@@ -15,8 +15,8 @@
    "text": "內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，決策與檢索效率提升30%。"
   },
   {
-   "match": "流量分析與AI輔助選題",
-   "text": "新聞分類：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。"
+   "match": "競品分析與受眾策略",
+   "text": "新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。"
   }
  ]
 }
