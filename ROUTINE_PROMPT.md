@@ -15,6 +15,7 @@
 - LinkedIn：`python scripts/search_sources.py --source linkedin --out data/raw_jobs.json`，失敗的來源會寫在 `errors` 欄位。
 - LinkedIn 若回 429，改用 WebSearch：`site:linkedin.com/jobs/view "Data Analyst" Taipei`、`... Tokyo`。
 - 依 `criteria.yaml` 的 `sources`，用 WebSearch / WebFetch 補搜 CakeResume、Yourator、TokyoDev、Japan Dev、Daijob / CareerCross。只收過去 7 天內刊登或更新、職稱符合 `include_title`、地點符合 `locations` 的職缺。
+- **日本與其他來源每週都要實際嘗試**，不可因為 `runs/` 裡前幾週失敗就跳過。Japan Dev（`https://japan-dev.com/jobs`）在此環境可連線；TokyoDev 會回 403，改用 WebSearch。
 - 每個來源記下：成功 / 失敗（原因）/ 筆數。
 
 ## 2. 去重與排除
