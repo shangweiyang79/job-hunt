@@ -1,0 +1,22 @@
+{
+ "template": "templates/中文履歷_楊上瑋_數據分析師.pptx",
+ "output": "applications/2026-10-13_華碩電腦_Data-Scientist-AI/中文履歷_楊上瑋_華碩.pptx",
+ "edits": [
+  {
+   "match": "數據分析師",
+   "text": "資料科學家"
+  },
+  {
+   "match": "8年跨媒體",
+   "text": "8年數據分析經驗，近年聚焦LLM應用：自建內部RAG助理(Vertex AI Search+Gemini)並設8項檢核評測層；DistilBERT+Gemini新聞分類F1達0.81；推薦排序使觀看成長5%。經濟學碩士，中英日三語。"
+  },
+  {
+   "match": "用戶儀表板與報表自動化",
+   "text": "內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，決策與檢索效率提升30%。"
+  },
+  {
+   "match": "流量分析與AI輔助選題",
+   "text": "新聞分類：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。"
+  }
+ ]
+}
