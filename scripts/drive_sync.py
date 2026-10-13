@@ -28,6 +28,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
@@ -216,7 +217,7 @@ def sync(root, apply, archive_stale):
                     move(svc, f["id"], latest_id, archive_id)
 
     # forget manifest entries for files that no longer exist locally
-    for rel in [r for r in manifest if r not in files]:
+    for rel in [r for r in manifest if r not in files and not r.startswith("_")]:
         del manifest[rel]
     if apply:
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -230,7 +231,7 @@ def unchanged_since_last_sync(root):
         return False
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     files = local_files(root)
-    if set(files) != set(manifest):
+    if set(files) != {k for k in manifest if not k.startswith("_")}:
         return False
     return all(md5(p) == manifest[rel]["md5"] for rel, p in files.items())
 
@@ -261,6 +262,37 @@ def mirror_to_repo(root):
             print("drive_sync: templates committed but git push failed", file=sys.stderr)
         else:
             print("  REPO    templates pushed to job-hunt")
+
+
+def sync_applications(root, apply, force=False):
+    """Pull job-hunt and upload new applications/<dir> folders (written by the weekly routine)
+    to 應徵最新/自動客製/<dir>. Pulls at most once an hour unless forced."""
+    repo = root / "job-hunt"
+    if not (repo / ".git").exists():
+        return 0
+    state_path = root / MANIFEST_NAME
+    manifest = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+    meta = manifest.get("_applications", {"last_pull": 0, "uploaded": []})
+    if not force and time.time() - meta["last_pull"] < 3600:
+        return 0
+    if subprocess.run(["git", "-C", str(repo), "pull", "-q", "--ff-only"]).returncode != 0:
+        print("drive_sync: git pull of job-hunt failed", file=sys.stderr)
+    meta["last_pull"] = time.time()
+    apps = repo / "applications"
+    new_dirs = [d for d in sorted(apps.iterdir()) if d.is_dir() and d.name not in meta["uploaded"]] if apps.is_dir() else []
+    svc = service(root) if new_dirs else None
+    for d in new_dirs:
+        files = [p for p in d.iterdir() if p.suffix.lower() in SYNC_EXTS | {".md"}]
+        print(f"  APP     {d.name}: {len(files)} file(s) -> 自動客製/{d.name}")
+        if apply:
+            parent = ensure_folder(svc, ensure_folder(svc, APPLY_ROOT_ID, "自動客製", True), d.name, True)
+            for p in files:
+                upload(svc, p, parent)
+            meta["uploaded"].append(d.name)
+    if apply:
+        manifest["_applications"] = meta
+        state_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    return len(new_dirs)
 
 
 def upload_outputs(root, paths, folder_path):
@@ -296,8 +328,11 @@ def main():
     if a.auto:
         if not os.environ.get("GDRIVE_TOKEN_JSON") and not (root / ".secrets" / "drive_token.json").exists():
             return  # not set up yet; stay quiet in the Stop hook
+        sync_applications(root, a.apply)
         if unchanged_since_last_sync(root):
             return
+    else:
+        sync_applications(root, a.apply, force=True)
     sync(root, a.apply, a.archive_stale)
     if a.apply:
         mirror_to_repo(root)
