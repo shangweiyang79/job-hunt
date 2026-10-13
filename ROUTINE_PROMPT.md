@@ -3,7 +3,8 @@
 你在 `job-hunt` repo 根目錄執行一次完整的每週職缺搜尋。所有面向使用者的文字用繁體中文。整個流程在這一輪內完成。
 
 ## 0. 準備
-- `pip install -q -r requirements.txt`
+- `python -m pip install -q -r requirements.txt`。之後所有腳本都用同一個 `python` 執行，不要混用 `python3` 或單獨的 `pip`：雲端環境的 `pip` 指向另一個 Python 版本，會出現找不到 `requests` 的錯誤。
+- 網路檢查：`curl -s -o /dev/null -w "%{http_code}" https://www.104.com.tw/ ; curl -s -o /dev/null -w " %{http_code}" https://api.telegram.org/`。兩者都失敗時，代表環境的網路白名單沒放行，在通知與週報中直接說明，不要假裝搜尋過。
 - `date -u +%F` 取得今天日期，算出 ISO 週次（例：2026-W43）。
 - 讀 `config/criteria.yaml`、`profile/candidate_facts.md`、`data/seen_jobs.csv`。
 - `candidate_facts.md` 是唯一事實來源。**不可虛構任何數字、經歷、工具或成果。**
