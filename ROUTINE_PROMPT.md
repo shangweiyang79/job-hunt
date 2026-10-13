@@ -4,13 +4,15 @@
 
 ## 0. 準備
 - `python -m pip install -q -r requirements.txt`。之後所有腳本都用同一個 `python` 執行，不要混用 `python3` 或單獨的 `pip`：雲端環境的 `pip` 指向另一個 Python 版本，會出現找不到 `requests` 的錯誤。
-- 網路檢查：`curl -s -o /dev/null -w "%{http_code}" https://www.104.com.tw/`。失敗（000 或 403）代表環境的網路白名單沒放行，在 email 與週報中直接說明，不要假裝搜尋過。
 - `date -u +%F` 取得今天日期，算出 ISO 週次（例：2026-W43）。
 - 讀 `config/criteria.yaml`、`profile/candidate_facts.md`、`data/seen_jobs.csv`。
 - `candidate_facts.md` 是唯一事實來源。**不可虛構任何數字、經歷、工具或成果。**
 
 ## 1. 搜尋（過去 `window_days` 天）
-- `python scripts/search_sources.py --source 104 linkedin --out data/raw_jobs.json`，失敗的來源會寫在 `errors` 欄位。
+- **104 不要從雲端抓**：104 會擋雲端 IP（HTTP 403）。每週一 08:30 使用者的電腦會把 104 結果（含完整 JD，在每筆的 `detail` 欄位）推到 `data/raw_jobs_local.json`。先 `git pull` 再讀這個檔：
+  - `fetched_at` 在 3 天內：用它當 104 的來源，評分時直接讀 `detail`，不要再呼叫 `--detail 104:...`。
+  - 檔案太舊或不存在（電腦沒開機）：104 標為「本週本機抓取未執行」，在 email 與週報中說明，不要嘗試從雲端抓 104。
+- LinkedIn：`python scripts/search_sources.py --source linkedin --out data/raw_jobs.json`，失敗的來源會寫在 `errors` 欄位。
 - LinkedIn 若回 429，改用 WebSearch：`site:linkedin.com/jobs/view "Data Analyst" Taipei`、`... Tokyo`。
 - 依 `criteria.yaml` 的 `sources`，用 WebSearch / WebFetch 補搜 CakeResume、Yourator、TokyoDev、Japan Dev、Daijob / CareerCross。只收過去 7 天內刊登或更新、職稱符合 `include_title`、地點符合 `locations` 的職缺。
 - 每個來源記下：成功 / 失敗（原因）/ 筆數。
@@ -21,7 +23,7 @@
 - 同一職缺出現在多個來源，只保留一筆。
 
 ## 3. 評分（0–100）
-- 依 `scoring` 權重評分。分數 ≥ 60 的候選，**一定要讀完整 JD**（104 用 `python scripts/search_sources.py --detail 104:<id>`，其他來源用 WebFetch），不可只看標題。
+- 依 `scoring` 權重評分。分數 ≥ 60 的候選，**一定要讀完整 JD**（104 讀 `data/raw_jobs_local.json` 裡的 `detail`，其他來源用 WebFetch），不可只看標題。
 - 每筆記錄：分數、3 點匹配理由（引用 JD 原文）、1–2 點缺口、職缺類型（DA/BI 或 DS/DE/AE）。
 - 要誠實：JD 要求候選人沒有的硬技能（例如 Spark 生產經驗、5 年以上 DS 經驗）就扣分，不要為了湊高分而放水。
 

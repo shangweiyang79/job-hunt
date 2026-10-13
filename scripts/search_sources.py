@@ -134,6 +134,8 @@ def main():
     ap.add_argument("--source", nargs="+", default=["104", "linkedin"])
     ap.add_argument("--out")
     ap.add_argument("--detail")
+    ap.add_argument("--with-details", action="store_true",
+                    help="also fetch the full 104 JD for every job (the cloud routine can't reach 104)")
     a = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
 
@@ -143,7 +145,8 @@ def main():
 
     cfg = load_cfg()
     since = dt.date.today() - dt.timedelta(days=cfg["window_days"])
-    result = {"since": since.isoformat(), "jobs": [], "errors": {}}
+    result = {"fetched_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+              "since": since.isoformat(), "jobs": [], "errors": {}}
     for s in a.source:
         try:
             found = {"104": search_104, "linkedin": search_linkedin}[s](cfg, since)
@@ -152,6 +155,15 @@ def main():
         except Exception as e:
             result["errors"][s] = str(e)
             print(f"{s}: FAILED {e}", file=sys.stderr)
+    if a.with_details:
+        for job in result["jobs"]:
+            if job["source"] != "104":
+                continue
+            try:
+                job["detail"] = detail(f"104:{job['job_id']}")
+            except Exception as e:
+                job["detail_error"] = str(e)
+            time.sleep(0.5)
     text = json.dumps(result, ensure_ascii=False, indent=2)
     if a.out:
         Path(a.out).write_text(text, encoding="utf-8")

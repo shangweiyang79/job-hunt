@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 ~$*
 .secrets/
+data/local_fetch.log
