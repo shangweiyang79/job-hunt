@@ -1,45 +1,18 @@
-{"verdict": "REVISE",
- "checks": {"fact_fidelity": "PASS", "attribution": "PASS", "jd_alignment": "FAIL",
-            "narrative": "PASS", "consistency": "FAIL"},
+{"verdict": "PASS",
+ "checks": {"fact_fidelity": "PASS", "attribution": "PASS", "jd_alignment": "PASS",
+            "narrative": "PASS", "consistency": "PASS"},
  "jd_top3": [
   {"requirement": "1年以上 LLM 相關開發經驗：LLM 應用開發、Prompt Engineering、RAG 架構或 Agentic 開發",
-   "covered_by": "[TaiwanPlus] 內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，決策與檢索效率提升30%。 + 個人簡介「自建內部RAG助理(Vertex AI Search+Gemini)並設8項檢核評測層」"},
-  {"requirement": "1年以上 ML/DL 模型開發，用於推薦系統、客戶行為分析等，含實驗設計、效果評估與模型優化（JD 首段亦要求統計與實驗設計能力）",
-   "covered_by": "[TaiwanPlus] 新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。 + [TaiwanPlus] 推薦系統與專案成效分析：…調整排序後觀看成長5%。（推薦屬分析/排序調整，非推薦系統建置；Lookalike 與即時推薦為缺口）"},
+   "covered_by": "[TaiwanPlus] 內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，以Streamlit部署於Cloud Run，決策與檢索效率提升30%。 + 個人簡介「自建內部RAG助理(Vertex AI Search+Gemini，部署於Cloud Run)並設8項檢核評測層」 + 技能「AI: RAG 架構, Agentic AI」"},
+  {"requirement": "1年以上 ML/DL 模型開發，用於推薦系統、客戶行為分析等，含實驗設計、效果評估與模型優化（首段亦要求統計與實驗設計能力）",
+   "covered_by": "[TaiwanPlus] 新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，準確率與macro-F1皆0.81。 + [TaiwanPlus] 推薦系統與專案成效分析：…調整排序後觀看成長5% + [紅野畫廊] A/B 測試與歸因模型 + 經濟學碩士。缺口：Lookalike 模型、即時推薦系統建置、電商場景（推薦屬排序分析，非系統建置；CV 措辭如實寫為「分析」）"},
   {"requirement": "AI/ML 系統部署與維運：CI/CD 與版本治理、Azure 或 GCP 雲端服務部署與監控",
-   "covered_by": "部分：技能「雲端平台: GCP (BigQuery), AWS」「其他: Docker, Git」。CV 未提任何部署（facts 支持 Streamlit on Cloud Run 部署的內部工具）；CI/CD 自動化部署與版本治理為真實缺口"}
+   "covered_by": "部分：RAG 助理「以Streamlit部署於Cloud Run」、個人簡介「部署於Cloud Run」、技能「雲端平台: GCP (BigQuery), AWS」「其他: Docker, Git」。CI/CD 自動化部署與版本治理、模型監控為真實缺口（facts 無此內容），CV 未以模糊措辭掩飾"}
  ],
  "issues": [
-  {"check": "jd_alignment",
-   "cv_line": "[TaiwanPlus] 內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，決策與檢索效率提升30%。",
-   "evidence": "facts: \"Internal RAG AI assistant (Python → BigQuery → Vertex AI Search → Gemini, Streamlit on Cloud Run, company Google-account auth): deployed internal tool\"; JD: \"具備 雲端服務部署經驗，熟悉 Azure 或 GCP 雲端環境中的服務部署與監控\" 與 \"到系統部署與維運\"",
-   "why": "JD 反覆強調部署與維運，facts 支持 GCP Cloud Run 上的已部署內部工具，但 CV 全頁沒有出現 Cloud Run 或「部署」，錯失最直接的雲端部署證據。"},
-  {"check": "jd_alignment",
-   "cv_line": "程式語言: Python, SQL, ETL",
-   "evidence": "facts Skills: \"Python (pandas, scikit-learn)\"；\"ML / AI: classification, regression, clustering, feature engineering; ... LLM evals\"；JD: \"具備 Python 與常見 ML / LLM 開發框架 使用經驗者尤佳\"",
-   "why": "技能欄沿用分析師範本，對 DS/AI 職缺未列出任何 ML 框架；facts 支持 scikit-learn，應取代 ETL 並壓縮 BI 欄位。"},
   {"check": "consistency",
-   "cv_line": "中央研究院人文社會研究中心",
-   "evidence": "facts: \"Academia Sinica 中央研究院人文社會科學研究中心 — Research Assistant\"",
-   "why": "雇主單位名稱少了「科學」二字（範本既有錯誤，所有中文履歷都會帶到）；13 字框可改為等長的「中研院人文社會科學研究中心」，並建議同步修正主範本。"},
-  {"check": "consistency",
-   "cv_line": "[TaiwanPlus] 新聞分類模型：…處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。",
-   "evidence": "rubric 5: 中文履歷除工具名稱外不夾英文",
-   "why": "「accuracy」是一般詞而非工具名，改「準確率」；macro-F1 為指標專名可保留。輕微。"},
-  {"check": "consistency",
-   "cv_line": "資料分析與視覺化: Power BI, Tableau, GA4,  Looker Studio, Excel",
-   "evidence": "「GA4,」與「Looker Studio」之間為兩個空格",
-   "why": "標點後雙空格（範本既有），順便在技能欄修改時移除。"},
-  {"check": "narrative",
-   "cv_line": "8年數據分析經驗，近年聚焦LLM應用：…經濟學碩士，中英日三語。",
-   "evidence": "範本原句: \"8年跨媒體、新聞與藝術產業數據分析經驗\"；facts: 紅野畫廊職稱為 Gallery Manager / 藝廊經理；\"Certification: iPAS AI應用規劃師 中級 (passed, 2026)\"",
-   "why": "非阻擋：刪掉產業限定詞後讀來像 8 年專職數據分析，與畫廊經理任期對不上，面試時易被追問；同時刪掉了與 AI 職缺直接相關的 iPAS AI應用規劃師中級。建議恢復限定詞並補回證照（字數 164 ≤ 原框 177）。"}
+   "cv_line": "程式語言: Python, SQL, scikit-learn",
+   "evidence": "facts Skills: \"Python (pandas, scikit-learn)\"",
+   "why": "非阻擋、可不改：scikit-learn 是 Python 函式庫而非程式語言，欄位標籤略不精確；若框寬允許可寫成「程式語言: Python (scikit-learn), SQL」，但多 2 字有溢框風險，現狀可直接投遞。"}
  ],
- "suggested_edits": [
-  {"match": "8年跨媒體", "text": "8年跨媒體、新聞與藝術產業數據分析經驗，近年聚焦LLM應用：自建內部RAG助理(Vertex AI Search+Gemini，部署於Cloud Run)並設8項檢核評測層；DistilBERT+Gemini新聞分類macro-F1達0.81；推薦排序使觀看成長5%。經濟學碩士，已通過iPAS AI應用規劃師中級，中英日三語。"},
-  {"match": "用戶儀表板與報表自動化", "text": "內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，以Streamlit部署於Cloud Run，決策與檢索效率提升30%。"},
-  {"match": "競品分析與受眾策略", "text": "新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，準確率與macro-F1皆0.81。"},
-  {"match": "資料分析與視覺化", "text": "資料視覺化: Power BI, Tableau, GA4, Looker Studio"},
-  {"match": "程式語言", "text": "程式語言: Python, SQL, scikit-learn"},
-  {"match": "中央研究院人文社會研究中心", "text": "中研院人文社會科學研究中心"}
- ]}
+ "suggested_edits": []}
