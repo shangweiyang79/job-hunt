@@ -5,7 +5,7 @@
 **Joy 的主攻是資料工程（DE）與資料科學（DS）。** 台灣的數據分析（DA）職缺薪資通常有天花板，年薪很難破百萬，除非進外商。DA/BI 是次要目標。
 
 ## 0. 準備
-- `git pull -q`，然後 `python -m pip install -q -r requirements.txt`。之後所有腳本都用同一個 `python` 執行，不要混用 `python3` 或單獨的 `pip`：雲端的 `pip` 指向另一個 Python 版本。
+- `git checkout -q main && git pull -q origin main`（雲端的 checkout 是 detached HEAD，直接 `git pull` 會失敗），然後 `python -m pip install -q -r requirements.txt`。之後所有腳本都用同一個 `python` 執行，不要混用 `python3` 或單獨的 `pip`：雲端的 `pip` 指向另一個 Python 版本。
 - `date -u +%F` 取得今天日期，算出 ISO 週次（例：2026-W43）。
 - 讀 `config/criteria.yaml`、`profile/candidate_facts.md`、`profile/attribution.yaml`、`data/seen_jobs.csv`。
 - `candidate_facts.md` 是唯一事實來源。**不可虛構任何數字、經歷、工具或成果。** Airflow、Spark、Kafka 是已知缺口，永遠不可寫進 CV。
