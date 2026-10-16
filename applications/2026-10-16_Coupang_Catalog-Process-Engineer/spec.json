@@ -1,0 +1,22 @@
+{
+ "template": "templates/中文履歷_楊上瑋_資料工程師.pptx",
+ "output": "applications/2026-10-16_Coupang_Catalog-Process-Engineer/中文履歷_楊上瑋_Coupang.pptx",
+ "edits": [
+  {
+   "match": "8年跨媒體",
+   "text": "8年跨媒體、新聞與藝術產業數據經驗，近年專注資料工程：以Python建置ETL管線並部署於Cloud Run；以dbt建置轉換層，含資料測試與對帳；處理多來源資料去重與品質檢核；自建RAG助理與評測層。經濟學碩士，中英日三語。"
+  },
+  {
+   "match": "RAG資料產品",
+   "text": "資料匯入與去重：Comscore週報匯入以影片ID去重並計算速度指標，維護約20K筆主表。"
+  },
+  {
+   "match": "影音留存與推薦分析",
+   "text": "RAG資料產品：Vertex AI Search→Gemini內部助理，8項決定性檢核，檢索效率提升30%。"
+  },
+  {
+   "match": "資料管線與自動化",
+   "text": "儀表板與管線自動化：建置官網/App自助儀表板與月報，以Python將多平台成效匯入BigQuery並部署Cloud Run排程，資料作業效率提升100%。"
+  }
+ ]
+}

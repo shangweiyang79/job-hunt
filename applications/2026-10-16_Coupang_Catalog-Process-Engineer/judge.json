@@ -1,0 +1,22 @@
+{"verdict": "PASS",
+ "checks": {"fact_fidelity": "PASS", "attribution": "PASS", "jd_alignment": "PASS",
+            "narrative": "PASS", "consistency": "PASS"},
+ "jd_top3": [
+  {"requirement": "維護 ETL 資料流程（擷取、轉換、驗證、載入，處理失敗與重跑）",
+   "covered_by": "[TaiwanPlus] 儀表板與管線自動化：…以Python將多平台成效匯入BigQuery並部署Cloud Run排程… + [TaiwanPlus] dbt轉換層：…資料測試，以對帳腳本比對13個既有views。facts 中沒有失敗處理或重跑的內容，這部分是缺口，CV 也沒有聲稱做過。"},
+  {"requirement": "整合多來源資料，處理欄位對應、格式不一致、重複紀錄與資料衝突；建立資料品質檢核",
+   "covered_by": "[TaiwanPlus] dbt轉換層（4平台 staging→intermediate→marts、資料測試、對帳）+ [TaiwanPlus] 資料匯入與去重：Comscore週報匯入以影片ID去重 + 簡介「處理多來源資料去重與品質檢核」（依據為 facts：『intermediate (4 platforms stacked into one long table, post-mapping dedup)』『sentinel data tests』『Comscore weekly export import with video-ID dedup』）。商品/主資料比對與標準化是缺口。"},
+  {"requirement": "建立營運指標、儀表板與報表（基本資格：儀表板開發、指標與行動建議）",
+   "covered_by": "[TaiwanPlus] 儀表板與管線自動化：建置官網/App自助儀表板與月報…資料作業效率提升100%。+ [TaiwanPlus] dbt轉換層：…指標定義 + [聯合報系] 流量分析與AI輔助選題：…提出優化建議。上一輪的儀表板缺漏已修正。生成式 AI（基本資格）由 [TaiwanPlus] RAG資料產品：…8項決定性檢核 涵蓋。"}
+ ],
+ "issues": [
+  {"check": "jd_alignment",
+   "cv_line": "N/A（缺口）",
+   "evidence": "JD 職責與加分項：「處理失敗與重跑」「SQL query plan 與效能調整」「Google Sheets 自動化」「商品/主資料比對與標準化」",
+   "why": "facts 中沒有對應內容，CV 正確地沒有聲稱，所以維持現狀即可，但面試時要準備好如何說明。不阻擋。"},
+  {"check": "fact_fidelity",
+   "cv_line": "[聯合報系] 流量分析與AI輔助選題：定期向跨部門主管簡報網站流量與訂閱轉換指標並提出優化建議",
+   "evidence": "facts：「Bi-weekly traffic and subscription-conversion analysis presented to department heads, with content recommendations.」",
+   "why": "僅供參考，不判 FAIL：「定期」可對應 bi-weekly，「跨部門主管」對應 department heads，「優化建議」對應 content recommendations。屬改寫而非誇大，且這段沿用範本原文，本次沒有修改。"}
+ ],
+ "suggested_edits": []}

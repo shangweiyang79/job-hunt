@@ -1,0 +1,6 @@
+Coupang Taiwan — Catalog Process Engineer (Taipei, onsite, intermediate, 2+ yrs SQL/Python preferred)
+https://jobuzzer.com/jobs/f2207452-3901-492d-bfce-e0b6ab7ff8c8
+Apply: https://www.coupang.jobs/en/jobs/?gh_jid=8210320
+職責：開發與最佳化 SQL 查詢；維護 ETL 資料流程（擷取、轉換、驗證、載入，處理失敗與重跑）；整合多來源商品資料，處理欄位對應、格式不一致、重複紀錄與資料衝突；建立資料品質檢核機制；自動化日常資料作業；建立營運指標、儀表板與報表。
+基本資格：SQL 查詢開發；ETL/資料管線開發維護；多來源結構化資料整合；資料品質驗證；資料流程自動化；指標與行動建議；儀表板開發；生成式 AI 或提示工程使用經驗；商務英文。
+加分：2 年以上 SQL 與 Python；Google Sheets 自動化；SQL query plan 與效能調整；端到端資料管線；提示測試；商品/主資料比對與標準化。
