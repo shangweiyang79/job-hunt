@@ -1,0 +1,30 @@
+{
+ "template": "templates/中文履歷_楊上瑋_數據分析師.pptx",
+ "output": "E:/面試準備/中文履歷/中文履歷_楊上瑋_資料科學家.pptx",
+ "edits": [
+  {
+   "match": "數據分析師",
+   "text": "資料科學家"
+  },
+  {
+   "match": "8年跨媒體",
+   "text": "8年跨媒體、新聞與藝術產業數據經驗，近年聚焦機器學習與LLM應用：DistilBERT+Gemini新聞分類（處理資料洩漏與標籤清洗，macro-F1 0.81）、內部RAG助理與8項決定性檢核評測層、推薦排序分析使觀看成長5%。經濟學碩士，已通過iPAS AI應用規劃師中級，中英日三語。"
+  },
+  {
+   "match": "用戶儀表板與報表自動化",
+   "text": "新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，準確率與macro-F1皆0.81。"
+  },
+  {
+   "match": "競品分析與受眾策略",
+   "text": "RAG助理與評測：BigQuery→Vertex AI Search→Gemini，部署於Cloud Run，8項決定性檢核驗證引用與數字，檢索效率提升30%。"
+  },
+  {
+   "match": "資料分析與視覺化",
+   "text": "機器學習: Scikit-learn, DistilBERT, LLM評測"
+  },
+  {
+   "match": "中央研究院人文社會研究中心",
+   "text": "中研院人文社會科學研究中心"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "template": "templates/中文履歷_楊上瑋_數據分析師.pptx",
+ "output": "E:/面試準備/中文履歷/中文履歷_楊上瑋_數據分析師.pptx",
+ "edits": [
+  {
+   "match": "中央研究院人文社會研究中心",
+   "text": "中研院人文社會科學研究中心"
+  },
+  {
+   "match": "資料分析與視覺化",
+   "text": "資料分析與視覺化: Power BI, Tableau, GA4, Looker Studio, Excel"
+  }
+ ]
+}

@@ -1,8 +1,28 @@
 # Weekly job radar criteria. Edit freely; the routine reads this file every run.
 
 window_days: 7
-high_match_threshold: 80      # >= this score -> tailored CV + Telegram alert
 max_tailored_per_week: 3
+
+# Joy's main targets are data engineering and data science: DA pay in Taiwan tends to cap below
+# NT$1M/yr unless at a foreign company. Primary roles get a lower tailoring threshold.
+target_roles:
+  primary:                      # tailored CV at >= 75
+    threshold: 75
+    types: [DE, DS, AE, ML]     # data engineer, data scientist, analytics engineer, data-heavy ML/AI engineer
+  secondary:                    # tailored CV at >= 80
+    threshold: 80
+    types: [DA, BI]
+  # Every title-matched DE/DS/AE/ML job gets a score and a one-line reason. Exclude without
+  # scoring only for a clear non-data function (materials/failure analysis, network transmission,
+  # FAE, CAE simulation, MES/firmware) and say which rule excluded it.
+
+templates:                      # which master template to tailor, by role type and JD language
+  DE: {zh: "templates/中文履歷_楊上瑋_資料工程師.pptx", en: "templates/Resume_Shangwei Yang_Data Engineer.docx"}
+  AE: {zh: "templates/中文履歷_楊上瑋_資料工程師.pptx", en: "templates/Resume_Shangwei Yang_Data Engineer.docx"}
+  DS: {zh: "templates/中文履歷_楊上瑋_資料科學家.pptx", en: "templates/Resume_ Shangwei Yang_Data Scientist.docx"}
+  ML: {zh: "templates/中文履歷_楊上瑋_資料科學家.pptx", en: "templates/Resume_ Shangwei Yang_Data Scientist.docx"}
+  DA: {zh: "templates/中文履歷_楊上瑋_數據分析師.pptx", en: "templates/Resume_Shangwei Yang_Data Analyst.docx"}
+  BI: {zh: "templates/中文履歷_楊上瑋_數據分析師.pptx", en: "templates/Resume_Shangwei Yang_Data Analyst.docx"}
 
 roles:
   # title must match at least one of these (case-insensitive substring)
@@ -71,7 +91,8 @@ locations:
     accept: [Tokyo, 東京, Japan, 日本, Remote, リモート, Osaka, 大阪, Yokohama, 横浜]
 
 sources:
-  - {name: "104", method: "scripts/search_sources.py --source 104"}
+  - {name: "104", method: "data/raw_jobs_local.json (pushed by Joy's PC every Monday 08:30; 104 blocks cloud IPs)"}
+  - {name: JoBuzzer, method: "JoBuzzer connector: search_jobs location taipei / tokyo; strongest for foreign companies"}
   - {name: LinkedIn, method: "scripts/search_sources.py --source linkedin (often HTTP 429; fall back to WebSearch site:linkedin.com/jobs/view)"}
   - {name: CakeResume, method: "WebSearch site:cake.me/jobs"}
   - {name: Yourator, method: "WebSearch site:yourator.co/companies/*/jobs"}
@@ -80,9 +101,14 @@ sources:
   - {name: Daijob / CareerCross, method: "WebSearch site:daijob.com OR site:careercross.com data analyst / data scientist"}
 
 scoring:   # weights sum to 100
-  role_fit: 35        # DA / DS / DE / AE / BI scope vs candidate's actual work (see profile/candidate_facts.md)
-  skills: 25          # SQL, Python, BigQuery/GCP, Power BI/Tableau/Looker, GA4, A/B testing, ML, RAG/LLM
-  seniority: 15       # candidate: ~1.5 yrs titled data roles + 6 yrs analytics-heavy gallery role; ideal 1-5 yrs asked
+  role_fit: 35        # judge by transferable EVIDENCE in candidate_facts.md, not by job titles:
+                      #   DE/AE: Python→BigQuery pipelines on Cloud Run, dbt layer (staging→marts, tests,
+                      #          metric definitions, reconciliation), Comscore ETL + dedup, Prefect, Docker, SQL
+                      #   DS/ML: RAG + eval layer, DistilBERT classification, recommender analysis, M.S. Econ
+                      #   DA/BI: competitive analysis, retention, dashboards
+  skills: 25          # SQL, Python, BigQuery/GCP, dbt, Cloud Run, Power BI/Tableau/Looker, ML, RAG/LLM
+                      # known gaps (never claim): Airflow, Spark, Kafka
+  seniority: 15       # ~1.5 yrs in titled data roles + 6 yrs analytics-heavy gallery role; 1-4 yrs asked = full
   location: 10        # north Taiwan or Japan (Tokyo / remote) = full marks
   language: 10        # bonus when English or Japanese is required (TOEIC 925, JLPT N1)
   industry: 5         # media / content / streaming / e-commerce / consumer internet preferred
@@ -90,3 +116,7 @@ scoring:   # weights sum to 100
     - "requires 7+ years or people-management of a team -> -20"
     - "hard requirement candidate clearly lacks (e.g. Scala/Spark production, PhD, Java backend) -> -15 each, max -30"
     - "Japan role requiring business-level Japanese only (JLPT N1 is fine) -> no penalty; requires Japanese nationality/visa already held -> flag"
+    - "posted salary: max monthly x 14 < 1,000,000 TWD (or annual max < 1,000,000) -> -15; 面議/negotiable -> 0"
+  bonuses:
+    - "foreign company (外商) or Japan role -> +5"
+

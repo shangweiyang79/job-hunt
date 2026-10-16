@@ -1,0 +1,42 @@
+{
+ "template": "templates/中文履歷_楊上瑋_數據分析師.pptx",
+ "output": "E:/面試準備/中文履歷/中文履歷_楊上瑋_資料工程師.pptx",
+ "edits": [
+  {
+   "match": "數據分析師",
+   "text": "資料工程師"
+  },
+  {
+   "match": "8年跨媒體",
+   "text": "8年跨媒體、新聞與藝術產業數據經驗，近年專注資料工程：以Python→BigQuery建置多平台成效管線並部署於Cloud Run；以dbt建置新聞部社群成效轉換層（staging→marts、指標定義與資料測試）；並自建RAG助理與評測層。經濟學碩士，中英日三語。"
+  },
+  {
+   "match": "用戶儀表板與報表自動化",
+   "text": "資料管線與自動化：以Python將多平台影音成效匯入BigQuery，部署Cloud Run排程，資料作業效率提升100%。"
+  },
+  {
+   "match": "競品分析與受眾策略",
+   "text": "dbt轉換層：建置4平台社群成效staging→intermediate→marts模型、指標定義與資料測試，以對帳腳本比對13個既有views，維持Looker Studio相容。"
+  },
+  {
+   "match": "影音留存分析",
+   "text": "RAG資料產品：BigQuery→Vertex AI Search→Gemini內部助理，Cloud Run同步與8項決定性檢核，檢索效率提升30%。"
+  },
+  {
+   "match": "推薦系統與專案成效分析",
+   "text": "影音留存與推薦分析：留存分析使頻道KPI提升50%；調整推薦排序後觀看成長5%。"
+  },
+  {
+   "match": "資料分析與視覺化",
+   "text": "資料工程: BigQuery, dbt, Cloud Run, Docker, Prefect"
+  },
+  {
+   "match": "其他:",
+   "text": "資料庫: MySQL, MongoDB, Git"
+  },
+  {
+   "match": "中央研究院人文社會研究中心",
+   "text": "中研院人文社會科學研究中心"
+  }
+ ]
+}

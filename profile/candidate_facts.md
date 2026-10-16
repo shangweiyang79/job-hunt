@@ -20,6 +20,9 @@ Government-funded international English media platform (政府支持之國際媒
 - Computex 2026 exhibition video project: cross-department performance analysis; views approaching **110萬 / ~1.1M**.
 - Internal RAG AI assistant (Python → BigQuery → Vertex AI Search → Gemini, Streamlit on Cloud Run, company Google-account auth): **deployed internal tool** for editors to query content and competitor intel; **+30%** decision/retrieval efficiency. Has an eval layer: 8 deterministic checks verify citations and numbers against the DB, and a gate catches 90% of reviewer-rejected answers while passing 80% of accepted ones (threshold fitted on 20 answers, one labeller; state this caveat if mentioned). Public repo: github.com/shangweiyang79/AI_project.
 - News classification (DS framing): DistilBERT + Gemini confidence cascade with a data-leakage / label-cleaning story; accuracy 0.81, macro-F1 0.81 (repo TaiwanPlus-News-Classification).
+- **dbt transformation layer (DE framing)** — repo github.com/shangweiyang79/taiwanplus-dbt. dbt on BigQuery for the newsroom's social-media performance: 3 units (Newsroom, Talks, Connected) × **4 platforms** (YouTube, Instagram, Facebook, X). Layers: staging (per-platform tables normalized to shared columns) → intermediate (4 platforms stacked into one long table, post-mapping dedup) → marts (`fct_daily_traffic`, `fct_social_post_performance`, monthly aggregates). Semantic-layer metric definitions (views, watch time, engagements, engagement rate, posts…) with saved queries; single source of definitions in `_definitions.md`; sentinel data tests; a reconciliation script compares output against **13** legacy `social_hub` views; compatibility layer keeps existing Looker Studio dashboards working. Extract/load is done by Python scripts + Cloud Run; dbt handles transformation, tests and metric definitions. Also an AI-context file + evaluation question set for a chatbot that answers metric questions.
+  - **Status caveat:** production cutover (dev → prod dataset) is planned, not done. Say "built / rebuilt the dbt transformation layer", never "replaced the legacy views in production".
+- Data pipelines (DE framing): Python ingestion of multi-platform video metrics into BigQuery, scheduled on Cloud Run; Comscore weekly export import with video-ID dedup and velocity metrics (~20K-record master table); Cloud Run job syncing BigQuery → Vertex AI Search.
 
 ### United Daily News Group 聯合報系 — Data Analyst / 資料分析師 · New Taipei · 2025/04 – 2025/05
 - Bi-weekly traffic and subscription-conversion analysis presented to department heads, with content recommendations.
@@ -37,9 +40,13 @@ Government-funded international English media platform (政府支持之國際媒
 - National Central University 國立中央大學 — M.S. Economics 經濟學碩士 · 2013/09 – 2015/06 (EN template says Jul. 2015). GPA 3.87/4.0; highest mark on oral defence; thesis Honourable Mention, Taiwan Economic Association Best Master's Thesis Award. Thesis: "Are Foreign-Owned Auction Houses More Efficient in the Chinese Art Market?"
 - TibaMe 緯育 Data Engineering Program 資料工程師養成班 · 2024/12 – 2025/03. Capstone 台灣電影市場消費者喜好分析: scraped box-office data, ETL with Prefect, Tableau dashboard; found certain re-released film genres under-programmed and made release-window recommendations.
 
+## Data engineering — what can and cannot be claimed
+- Can claim: Python ETL, SQL, BigQuery, **dbt** (TaiwanPlus, above), Cloud Run, Docker, Prefect (TibaMe), MySQL / MongoDB and conceptual + logical data modeling (TibaMe / 2025 DE résumé), Git, AWS, GCP.
+- **No hands-on experience — never write these into a CV; report as gaps:** Airflow, Spark / PySpark, Kafka / streaming.
+
 ## Skills (only these)
 - BI & viz: Power BI, Tableau, Looker Studio / Data Studio, GA4, GTM, Google Search Console, Excel
-- Data: SQL, Python (pandas, scikit-learn), BigQuery / GCP, AWS, ETL (Prefect), Git, Docker
+- Data: SQL, Python (pandas, scikit-learn), BigQuery / GCP, dbt, AWS, ETL (Prefect), Cloud Run, Docker, Git, MySQL, MongoDB, data modeling (conceptual / logical)
 - Analytics methods: KPI / metric design, dashboarding, reporting automation, funnel & retention, segmentation, A/B testing, competitive benchmarking
 - ML / AI: classification, regression, clustering, feature engineering; RAG, vector DB, semantic search, LLM evals, AI agents (Agentic AI)
 

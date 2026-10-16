@@ -1,0 +1,24 @@
+RD20463 Data Scientist (AI) — 華碩電腦股份有限公司
+URL: https://www.104.com.tw/job/731jy
+經歷: 1年以上  學歷: 大學、碩士
+技能: Python
+
+我們需要的團隊夥伴
+•	我們需要具備扎實統計學基礎與實驗設計能力的工程師，能透過數據分析與科學方法驗證 AI 模型與推薦系統的成效，並持續優化產品體驗。
+•	此角色需要對 Large Language Models (LLMs) 與 AI Agent 技術具備高度興趣與研究熱忱，並能將前沿技術有效落地於實際產品場景。
+•	團隊成員將參與完整 AI 系統生命週期，從模型開發、實驗設計、成效監控、持續優化，到系統部署與維運，打造可在全球電商環境中持續演進的 AI 系統。
+
+技術實作內容
+此角色將參與以下 AI 系統與平台的設計與開發：
+•	開發 LLM-based AI Assistant Tools，開發消費者產品媒合、對話與服務引導 Hints
+•	開發 AI Customer Intelligence 系統，建立線上訪客側寫並支援個人化推薦與精準行銷
+•	開發Audience Lookalike Model，協助廣告人群擴增與投放
+•	設計與優化 Real-time Product Recommendation 系統，提升電商商品探索與轉換率
+•	建立 資料管線與 AI 模型部署流程，支援模型訓練、A/B testing、成效監控與持續優化
+
+其他條件:
+1.	具備 1 年以上 Large Language Models (LLMs) 相關開發經驗，包含 LLM 應用開發、Prompt Engineering、RAG 架構或 Agentic BPR 開發經驗。
+2.	具備 1 年以上 Machine Learning / Deep Learning 模型開發經驗，能應用於推薦系統、客戶行為分析或時序資料預測等場景，並能參與模型開發、實驗設計、效果評估與模型優化流程。
+3.	具備 CI/CD 與版本管理經驗，能建立或參與 AI / ML 系統的自動化部署與版本治理流程。
+4.	具備 雲端服務部署經驗，熟悉 Azure 或 GCP 雲端環境中的服務部署與監控。
+5.	具備 Python 與常見 ML / LLM 開發框架 使用經驗者尤佳。

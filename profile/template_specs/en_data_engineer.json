@@ -1,0 +1,10 @@
+{"template": "templates/Resume_ Shangwei Yang_Data Scientist.docx",
+ "output": "E:/面試準備/Resume/Resume_Shangwei Yang_Data Engineer.docx",
+ "edits": [
+  {"match": "Analytical and results-driven", "text": "Data engineer with over 8 years of experience in media and art, building Python → BigQuery pipelines on GCP, dbt transformation layers with tested metric definitions, and the data products on top of them, including a RAG assistant with an evaluation layer. Pipeline automation improved data-operation efficiency by 100%. Trilingual (English, Japanese, Mandarin) with a Master's in Economics."},
+  {"match": "Data Pipeline & Automation:", "text": "Data Pipelines: Built Python ingestion of daily multi-platform video metrics into BigQuery, scheduled on Cloud Run, improving data-operation efficiency by 100%."},
+  {"match": "Strategic Growth Analysis:", "text": "dbt Transformation Layer: Built dbt models for newsroom social performance across 4 platforms (staging → intermediate → marts) with metric definitions, data tests, and a reconciliation script against 13 legacy views to keep Looker Studio dashboards working."},
+  {"match": "AI Innovation:", "text": "AI Data Products: Built an internal RAG assistant (BigQuery → Vertex AI Search → Gemini) with a Cloud Run sync job and deterministic evaluation checks, accelerating retrieval speed by 30%."},
+  {"match": "Programming:", "text": "Programming: Python (Pandas), SQL, Git, Docker."},
+  {"match": "Data Stack:", "text": "Data Engineering: BigQuery, dbt, Cloud Run, Prefect, MySQL, MongoDB."}
+ ]}

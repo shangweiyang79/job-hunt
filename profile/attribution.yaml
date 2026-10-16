@@ -7,7 +7,7 @@ employers:
   TaiwanPlus:
     pptx_boxes: [170]
     docx_header: ["TaiwanPlus"]
-    terms: [RAG, DistilBERT, BigQuery, Vertex, Gemini, NHK, CNA, Arirang, Computex, YouTube, 推薦, recommender, "17.6", "176K", 分類, classification, F1]
+    terms: [RAG, DistilBERT, BigQuery, dbt, Cloud Run, Comscore, Looker Studio, Vertex, Gemini, NHK, CNA, Arirang, Computex, YouTube, 推薦, recommender, "17.6", "176K", 分類, classification, F1]
   聯合報系:
     pptx_boxes: [171]
     docx_header: ["United Daily News"]

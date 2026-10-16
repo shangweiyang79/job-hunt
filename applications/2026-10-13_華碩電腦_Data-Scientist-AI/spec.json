@@ -8,15 +8,27 @@
   },
   {
    "match": "8年跨媒體",
-   "text": "8年數據分析經驗，近年聚焦LLM應用：自建內部RAG助理(Vertex AI Search+Gemini)並設8項檢核評測層；DistilBERT+Gemini新聞分類F1達0.81；推薦排序使觀看成長5%。經濟學碩士，中英日三語。"
+   "text": "8年跨媒體、新聞與藝術產業數據分析經驗，近年聚焦LLM應用：自建內部RAG助理(Vertex AI Search+Gemini，部署於Cloud Run)並設8項檢核評測層；DistilBERT+Gemini新聞分類macro-F1達0.81；推薦排序使觀看成長5%。經濟學碩士，已通過iPAS AI應用規劃師中級，中英日三語。"
   },
   {
    "match": "用戶儀表板與報表自動化",
-   "text": "內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，決策與檢索效率提升30%。"
+   "text": "內部RAG助理：Python→BigQuery→Vertex AI Search→Gemini，以Streamlit部署於Cloud Run，決策與檢索效率提升30%。"
   },
   {
    "match": "競品分析與受眾策略",
-   "text": "新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，accuracy與macro-F1皆0.81。"
+   "text": "新聞分類模型：DistilBERT+Gemini信心度級聯，處理資料洩漏與標籤清洗，準確率與macro-F1皆0.81。"
+  },
+  {
+   "match": "資料分析與視覺化",
+   "text": "資料視覺化: Power BI, Tableau, GA4, Looker Studio"
+  },
+  {
+   "match": "程式語言",
+   "text": "程式語言: Python, SQL, scikit-learn"
+  },
+  {
+   "match": "中央研究院人文社會研究中心",
+   "text": "中研院人文社會科學研究中心"
   }
  ]
 }

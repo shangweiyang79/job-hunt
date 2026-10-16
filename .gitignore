@@ -5,3 +5,4 @@ __pycache__/
 ~$*
 .secrets/
 data/local_fetch.log
+applications/_test_*
